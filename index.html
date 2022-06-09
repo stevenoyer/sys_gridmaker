@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Systrio Drag and Drop</title>
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <div id="sys-panel" class="mt-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-2">
+                    <div class="sys-panel-header">
+                        <h1>Items</h1>
+                        <div class="sys-elements">
+                            <ul>
+                                <li>
+                                    <div class="item" field="input" new="true" draggable="true">Champ simple</div>
+                                </li>
+                                <li>
+                                    <div class="item" field="textarea" new="true" draggable="true">Champ éditeur</div>
+                                </li>
+                                <li>
+                                    <div class="item" field="select" new="true" draggable="true">Champ de sélection</div>
+                                </li>
+                                <li>
+                                    <div class="item" field="button" new="true" draggable="true">Bouton</div>
+                                </li>
+                                <li>
+                                    <div class="item" field="image" new="true" draggable="true">Image</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-10">
+                    <div class="sys-panel-body">
+                        <div class="container-fluid py-3">
+                            <div class="row sys-row"> 
+                                <div class="mb-4">
+                                    <div class="sys-btn-group text-end">
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#addRow" class="btn btn-success rounded-pill">Ajouter une rangée</button>
+                                    </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="addRow" tabindex="-1" aria-labelledby="addRow" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="addRow">Choisissez le nombre de colonnes</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body sys-modal-body">
+                                                    <div class="container-fluid">
+                                                        <div class="row">
+                                                            <div class="col-3">
+                                                                <div>
+                                                                    <div class="row">
+                                                                        <div class="col-12"><div class="col-example"></div></div>
+                                                                    </div>
+                                                                    <div class="text-center mt-3">
+                                                                        <button class="btn btn-secondary btn-add-row" data-bs-dismiss="modal" columns="1">Une colonne</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-3">
+                                                                <div>
+                                                                    <div class="row">
+                                                                        <div class="col-6"><div class="col-example"></div></div>
+                                                                        <div class="col-6"><div class="col-example"></div></div>
+                                                                    </div>
+                                                                    <div class="text-center mt-3">
+                                                                        <button class="btn btn-secondary btn-add-row" data-bs-dismiss="modal" columns="2">Deux colonnes</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-3">
+                                                                <div>
+                                                                    <div class="row">
+                                                                        <div class="col-4"><div class="col-example"></div></div>
+                                                                        <div class="col-4"><div class="col-example"></div></div>
+                                                                        <div class="col-4"><div class="col-example"></div></div>
+                                                                    </div>
+                                                                    <div class="text-center mt-3">
+                                                                        <button class="btn btn-secondary btn-add-row" data-bs-dismiss="modal" columns="3">Trois colonnes</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-3">
+                                                                <div>
+                                                                    <div class="row">
+                                                                        <div class="col-3"><div class="col-example"></div></div>
+                                                                        <div class="col-3"><div class="col-example"></div></div>
+                                                                        <div class="col-3"><div class="col-example"></div></div>
+                                                                        <div class="col-3"><div class="col-example"></div></div>
+                                                                    </div>
+                                                                    <div class="text-center mt-3">
+                                                                        <button class="btn btn-secondary btn-add-row" data-bs-dismiss="modal" columns="4">Quatre colonnes</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 my-2 sys-case-panel">
+                                    <div class="sys-row-panel">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="case"></div>
+                                            </div>
+                                        </div>
+                                        <div class="sys-btn-group text-end">
+                                            <button class="btn btn-danger btn-delete-row rounded-pill">Supprimer la rangée</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <template id="tmpl-sys-case-panel-col-12">
+        <div class="col-12 my-2 sys-case-panel">
+            <div class="sys-row-panel">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="case"></div>
+                    </div>
+                </div>
+                <div class="sys-btn-group text-end">
+                    <button class="btn btn-danger btn-delete-row rounded-pill">Supprimer la rangée</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="tmpl-sys-case-panel-col-6">
+        <div class="col-12 my-2 sys-case-panel">
+            <div class="sys-row-panel">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="case"></div>
+                    </div>
+                    <div class="col-6">
+                        <div class="case"></div>
+                    </div>
+                </div>
+                <div class="sys-btn-group text-end">
+                    <button class="btn btn-danger btn-delete-row rounded-pill">Supprimer la rangée</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="tmpl-sys-case-panel-col-4">
+        <div class="col-12 my-2 sys-case-panel">
+            <div class="sys-row-panel">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="case"></div>
+                    </div>
+                    <div class="col-4">
+                        <div class="case"></div>
+                    </div>
+                    <div class="col-4">
+                        <div class="case"></div>
+                    </div>
+                </div>
+                <div class="sys-btn-group text-end">
+                    <button class="btn btn-danger btn-delete-row rounded-pill">Supprimer la rangée</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="tmpl-sys-case-panel-col-3">
+        <div class="col-12 my-2 sys-case-panel">
+            <div class="sys-row-panel">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="case"></div>
+                    </div>
+                    <div class="col-3">
+                        <div class="case"></div>
+                    </div>
+                    <div class="col-3">
+                        <div class="case"></div>
+                    </div>
+                    <div class="col-3">
+                        <div class="case"></div>
+                    </div>
+                </div>
+                <div class="sys-btn-group text-end">
+                    <button class="btn btn-danger btn-delete-row rounded-pill">Supprimer la rangée</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/sys_form.js"></script>
+    <script src="assets/js/dragndrop.js"></script>
+    <script src="assets/js/sys_panel.js"></script>
+    <script src="assets/js/sys_script.js"></script>
+    <script src="assets/js/sys_sort.js"></script>
+</body>
+</html>
